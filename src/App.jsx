@@ -5,10 +5,11 @@ import Projects  from './components/Projects';
 function App() {
   return (
     <>
-      <CustomCursor />
-      <Hero />
+            <CustomCursor />
+            <Hero />
             <About />
             <Projects />
+            <Skills />
     </>
   );
 }
