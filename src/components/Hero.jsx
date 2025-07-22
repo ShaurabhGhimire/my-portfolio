@@ -10,11 +10,11 @@ export default function Hero() {
       <motion.h1
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 2 }}
         className="text-6xl md:text-8xl font-bold mb-4"
       >
         <span className="animate-shimmer bg-gradient-to-r from-[#00F5D4] to-[#9D4EDD] bg-clip-text text-transparent">
-          Saurav
+          Hello, I'm Saurav.
         </span>
       </motion.h1>
 
