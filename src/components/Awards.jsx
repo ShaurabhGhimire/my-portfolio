@@ -16,6 +16,7 @@ export default function Awards() {
   ];
 
   return (
+
     <section id="awards" className="py-20 px-8 md:px-20 bg-[#1E1E2F] text-white">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
+
     <section
       id="about"
       className="min-h-screen flex flex-col md:flex-row items-center justify-center px-8 md:px-20 bg-[#1E1E2F] text-white"
@@ -16,7 +17,14 @@ export default function About() {
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
         <p className="text-lg mb-6 max-w-xl leading-relaxed mx-auto md:mx-0">
-          I’m Saurav, a creative frontend developer passionate about designing modern, animated, and interactive web experiences. My approach focuses on minimal yet impactful design, merging clean layouts with subtle animations that make websites engaging and enjoyable to use.
+
+In today’s “everyone’s-a-coder” world, I like to stand out by blending clean layouts, slick animations, and thoughtful interactions that make people want to stay a little longer on your site.
+
+Whether it’s React dancing with Framer Motion, Node.js running smooth APIs, or crafting dashboards that just “click”, I enjoy making things look sharp and work fast.
+
+Right now? I’m chasing the sweet spot between beautiful design, solid code, and good vibes — and I’m always excited to collaborate with teams who care about the same.
+
+
         </p>
         <a
           href="#projects"

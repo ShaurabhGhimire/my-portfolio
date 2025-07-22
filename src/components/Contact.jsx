@@ -4,6 +4,7 @@ import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 export default function Contact() {
   return (
+
     <section id="contact" className="py-20 px-8 md:px-20 bg-[#1E1E2F] text-white flex flex-col items-center">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
@@ -59,5 +60,6 @@ export default function Contact() {
         </button>
       </form>
     </section>
+  
   );
 }

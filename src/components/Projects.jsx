@@ -37,6 +37,8 @@ export default function Projects() {
   ];
 
   return (
+    
+
     <section id="projects" className="min-h-screen px-8 md:px-20 py-16 bg-[#1E1E2F] text-white">
 
       {/* Featured Projects */}
