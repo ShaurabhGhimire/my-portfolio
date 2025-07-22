@@ -1,55 +1,71 @@
-/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 export default function Projects() {
+  const featuredProjects = [
+    {
+      title: "NASA Space Apps: ExoExplorer 🚀",
+      description:
+        "AI-powered educational tool for exploring exoplanets, blending real NASA data with AI storytelling. Nominated globally after winning the NJ Space Apps Challenge.",
+      gradient: "from-[#9D4EDD] to-[#00F5D4]",
+      demoLink: "#",
+      githubLink: "#",
+    },
+    {
+      title: "Accident Hotspot Prediction 🛣️",
+      description:
+        "Machine Learning project predicting accident hotspots in Nepal using clustering techniques and severity models to improve road safety.",
+      gradient: "from-[#00F5D4] to-[#5A189A]",
+      demoLink: "#",
+      githubLink: "#",
+    },
+  ];
+
+  const otherProjects = [
+    {
+      title: "Blog Website",
+      description: "React + Express blog with structured articles and previews.",
+      link: "#",
+      github: "#",
+    },
+    {
+      title: "Google Keep Clone",
+      description: "Minimalist note-keeping app built with React and MongoDB.",
+      link: "#",
+      github: "#",
+    },
+  ];
+
   return (
     <section id="projects" className="min-h-screen px-8 md:px-20 py-16 bg-[#1E1E2F] text-white">
 
-      {/* Featured Project */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="mb-16"
-      >
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Featured Project</h2>
-        <div className="bg-gradient-to-br from-[#9D4EDD] to-[#00F5D4] rounded-xl p-8 shadow-lg flex flex-col md:flex-row items-center">
-          <div className="flex-1 mb-6 md:mb-0">
-            <h3 className="text-3xl font-semibold mb-3">NASA Space Apps: ExoExplorer 🚀</h3>
-            <p className="mb-4 text-lg leading-relaxed">
-              AI-powered educational tool for exploring exoplanets, blending real NASA data with AI storytelling. 
-              Nominated globally after winning the NJ Space Apps Challenge.
-            </p>
-            <div className="flex gap-4 flex-wrap">
-              <a href="#" className="px-5 py-2 bg-[#00F5D4] text-[#1E1E2F] rounded-full font-semibold hover:scale-105 transition">Live Demo</a>
-              <a href="#" className="px-5 py-2 border-2 border-[#00F5D4] rounded-full font-semibold hover:scale-105 transition">GitHub</a>
+      {/* Featured Projects */}
+      <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center">Featured Projects</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+        {featuredProjects.map((project, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: idx * 0.2 }}
+            className={`bg-gradient-to-br ${project.gradient} rounded-xl p-8 shadow-lg flex flex-col justify-between`}
+          >
+            <div>
+              <h3 className="text-3xl font-semibold mb-4">{project.title}</h3>
+              <p className="text-lg mb-6">{project.description}</p>
             </div>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <div className="w-60 h-60 rounded-full bg-gradient-to-br from-[#00F5D4] via-[#9D4EDD] to-[#5A189A] shadow-2xl"></div>
-          </div>
-        </div>
-      </motion.div>
+            <div className="flex gap-4 mt-auto">
+              <a href={project.demoLink} className="px-5 py-2 bg-[#1E1E2F] text-white rounded-full font-semibold hover:scale-105 transition">Live Demo</a>
+              <a href={project.githubLink} className="px-5 py-2 border-2 border-white rounded-full font-semibold hover:scale-105 transition">GitHub</a>
+            </div>
+          </motion.div>
+        ))}
+      </div>
 
-      {/* Grid Projects */}
+      {/* Other Projects */}
       <h2 className="text-3xl font-bold mb-8 text-center">Other Projects</h2>
       <div className="grid md:grid-cols-2 gap-8">
-
-        {/* Example Card */}
-        {[
-          {
-            title: "Blog Website",
-            description: "React + Express blog with structured articles and previews.",
-            link: "#",
-            github: "#"
-          },
-          {
-            title: "Google Keep Clone",
-            description: "Minimalist note-keeping app built with React and MongoDB.",
-            link: "#",
-            github: "#"
-          }
-        ].map((project, index) => (
+        {otherProjects.map((project, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 30 }}
@@ -65,7 +81,6 @@ export default function Projects() {
             </div>
           </motion.div>
         ))}
-
       </div>
     </section>
   );
