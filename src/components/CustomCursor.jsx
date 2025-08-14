@@ -1,28 +1,49 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from 'react';
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const cursorRef = useRef(null);
+  const trailRef = useRef(null);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+    const cursor = cursorRef.current;
+    const trail = trailRef.current;
+
+    let mouseX = 0, mouseY = 0;
+    let trailX = 0, trailY = 0;
+
+    const moveCursor = (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    const animateTrail = () => {
+      trailX += (mouseX - trailX) * 0.1;
+      trailY += (mouseY - trailY) * 0.1;
+      trail.style.transform = `translate3d(${trailX}px, ${trailY}px, 0)`;
+      requestAnimationFrame(animateTrail);
+    };
+
+    document.addEventListener('mousemove', moveCursor);
+    animateTrail();
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener('mousemove', moveCursor);
     };
   }, []);
 
   return (
-    <div
-      className="fixed top-0 left-0 w-4 h-4 rounded-full pointer-events-none z-50"
-      style={{
-        transform: `translate(${position.x}px, ${position.y}px)`,
-        background: "linear-gradient(135deg, #00F5D4 0%, #9D4EDD 100%)",
-        transition: "transform 40ms linear, background 0.5s ease",
-      }}
-    />
+    <>
+      <div
+        ref={trailRef}
+        className="fixed top-0 left-0 w-16 h-16 rounded-full pointer-events-none z-50 bg-[#00F5D4] opacity-20 blur-3xl transition-transform duration-300"
+        style={{ transform: 'translate3d(0,0,0)', mixBlendMode: 'screen' }}
+      />
+      <div
+        ref={cursorRef}
+        className="fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-50 bg-[#00F5D4]"
+        style={{ transform: 'translate3d(0,0,0)' }}
+      />
+    </>
   );
 }

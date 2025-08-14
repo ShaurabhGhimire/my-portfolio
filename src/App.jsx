@@ -1,26 +1,24 @@
+import { useState, useEffect } from 'react';
 import Hero from './components/Hero';
-import CustomCursor from './components/CustomCursor';
-import About from './components/About';
-import Projects  from './components/Projects';
-import Skills from './components/Skills';
-import Awards from './components/Awards';
-import Contact from './components/Contact';
-// eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
-function App() {
+import MainLayout from './components/MainLayout';
+
+export default function App() {
+  const [showHero, setShowHero] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => setFadeOut(true), 3500);
+    const removeHeroTimer = setTimeout(() => setShowHero(false), 4000);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(removeHeroTimer);
+    };
+  }, []);
+
   return (
     <>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-            <CustomCursor />
-            <Hero />
-            <About />
-            <Projects />
-            <Skills />
-            <Awards />
-            <Contact />
-      </motion.div>
+      {showHero ? <Hero fadeOut={fadeOut} /> : <MainLayout />}
     </>
   );
 }
-
-export default App;

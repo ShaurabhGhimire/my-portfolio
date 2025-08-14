@@ -4,18 +4,16 @@ import { motion } from "framer-motion";
 export default function Projects() {
   const featuredProjects = [
     {
-      title: "NASA Space Apps: ExoExplorer 🚀",
+      title: "NASA Space Apps: ExoExplorer",
       description:
         "AI-powered educational tool for exploring exoplanets, blending real NASA data with AI storytelling. Nominated globally after winning the NJ Space Apps Challenge.",
-      gradient: "from-[#9D4EDD] to-[#00F5D4]",
       demoLink: "#",
       githubLink: "#",
     },
     {
-      title: "Accident Hotspot Prediction 🛣️",
+      title: "Accident Hotspot Prediction",
       description:
-        "Machine Learning project predicting accident hotspots in Nepal using clustering techniques and severity models to improve road safety.",
-      gradient: "from-[#00F5D4] to-[#5A189A]",
+        "Machine learning project predicting accident hotspots in Nepal using clustering techniques and severity models to improve road safety.",
       demoLink: "#",
       githubLink: "#",
     },
@@ -36,52 +34,147 @@ export default function Projects() {
     },
   ];
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 24 },
+    show: (i = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay: i * 0.08 },
+    }),
+  };
+
   return (
-    
+    <section
+      id="projects"
+      className="relative z-20 flex flex-col items-center py-20 px-8 md:px-20 text-white"
+    >
+      <motion.h2
+        initial={{ opacity: 0, y: -16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl md:text-5xl font-bold mb-10 text-center"
+      >
+        Featured Projects
+      </motion.h2>
 
-    <section id="projects" className="min-h-screen px-8 md:px-20 py-16 bg-[#1E1E2F] text-white">
-
-      {/* Featured Projects */}
-      <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center">Featured Projects</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
-        {featuredProjects.map((project, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: idx * 0.2 }}
-            className={`bg-gradient-to-br ${project.gradient} rounded-xl p-8 shadow-lg flex flex-col justify-between`}
+      {/* Featured grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-7xl w-full">
+        {featuredProjects.map((p, i) => (
+          <motion.article
+            key={p.title}
+            custom={i}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            whileHover={{ scale: 1.02 }}
+            className={[
+              "group relative rounded-2xl p-7",
+              "bg-[#0C1018] border border-white/6",
+              "bg-gradient-to-br from-white/[0.02] to-white/[0.01]",
+              "shadow-[0_0_0_0_rgba(0,245,212,0),_0_0_0_0_rgba(0,245,212,0)]",
+              "hover:shadow-[0_0_26px_3px_rgba(0,245,212,0.28),_0_0_80px_20px_rgba(0,245,212,0.12)]",
+              "transition-[transform,box-shadow] duration-300",
+            ].join(" ")}
           >
-            <div>
-              <h3 className="text-3xl font-semibold mb-4">{project.title}</h3>
-              <p className="text-lg mb-6">{project.description}</p>
+            <div
+              className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{ boxShadow: "inset 0 0 0 1px rgba(0,245,212,0.35)" }}
+            />
+
+            <h3 className="text-2xl md:text-3xl font-semibold mb-3">{p.title}</h3>
+            <p className="text-white/80 leading-relaxed mb-6">{p.description}</p>
+
+            {/* Buttons: outline by default → fill teal on hover */}
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a
+                href={p.demoLink}
+                className="px-5 py-2 rounded-full font-semibold border border-[#00F5D4]/60 text-white
+                           hover:bg-[#00F5D4] hover:text-[#0E1017]
+                           hover:shadow-[0_8px_20px_rgba(0,245,212,0.35)]
+                           transition-[background-color,color,box-shadow,transform] duration-200
+                           hover:scale-[1.03] active:scale-[0.98]"
+              >
+                Live Demo
+              </a>
+              <a
+                href={p.githubLink}
+                className="px-5 py-2 rounded-full font-semibold border border-[#00F5D4]/60 text-white
+                           hover:bg-[#00F5D4] hover:text-[#0E1017]
+                           hover:shadow-[0_8px_20px_rgba(0,245,212,0.35)]
+                           transition-[background-color,color,box-shadow,transform] duration-200
+                           hover:scale-[1.03] active:scale-[0.98]"
+              >
+                GitHub
+              </a>
             </div>
-            <div className="flex gap-4 mt-auto">
-              <a href={project.demoLink} className="px-5 py-2 bg-[#1E1E2F] text-white rounded-full font-semibold hover:scale-105 transition">Live Demo</a>
-              <a href={project.githubLink} className="px-5 py-2 border-2 border-white rounded-full font-semibold hover:scale-105 transition">GitHub</a>
-            </div>
-          </motion.div>
+          </motion.article>
         ))}
       </div>
 
-      {/* Other Projects */}
-      <h2 className="text-3xl font-bold mb-8 text-center">Other Projects</h2>
-      <div className="grid md:grid-cols-2 gap-8">
-        {otherProjects.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2, duration: 0.8 }}
-            className="bg-[#2A2A3B] rounded-xl p-6 shadow-md hover:scale-[1.02] transition cursor-pointer"
+      <motion.h2
+        initial={{ opacity: 0, y: -16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.6 }}
+        className="text-3xl font-bold mb-8 text-center"
+      >
+        Other Projects
+      </motion.h2>
+
+      {/* Other projects */}
+      <div className="grid md:grid-cols-2 gap-8 max-w-7xl w-full">
+        {otherProjects.map((p, i) => (
+          <motion.article
+            key={p.title}
+            custom={i}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            whileHover={{ scale: 1.015 }}
+            className={[
+              "group relative rounded-xl p-6",
+              "bg-[#0C1018] border border-white/6",
+              "bg-gradient-to-br from-white/[0.02] to-white/[0.01]",
+              "shadow-[0_0_0_0_rgba(0,245,212,0),_0_0_0_0_rgba(0,245,212,0)]",
+              "hover:shadow-[0_0_20px_2px_rgba(0,245,212,0.25),_0_0_60px_14px_rgba(0,245,212,0.10)]",
+              "transition-[transform,box-shadow] duration-300",
+            ].join(" ")}
           >
-            <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
-            <p className="mb-4">{project.description}</p>
-            <div className="flex gap-4">
-              <a href={project.link} className="px-4 py-2 text-sm bg-[#00F5D4] text-[#1E1E2F] rounded-full font-medium">Demo</a>
-              <a href={project.github} className="px-4 py-2 text-sm border border-[#00F5D4] rounded-full font-medium">GitHub</a>
+            <div
+              className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{ boxShadow: "inset 0 0 0 1px rgba(0,245,212,0.30)" }}
+            />
+
+            <h3 className="text-2xl font-semibold mb-2">{p.title}</h3>
+            <p className="text-white/80 mb-4">{p.description}</p>
+
+            {/* Buttons: outline by default → fill teal on hover */}
+            <div className="flex gap-3">
+              <a
+                href={p.link}
+                className="px-4 py-2 text-sm rounded-full font-medium border border-[#00F5D4]/60 text-white
+                           hover:bg-[#00F5D4] hover:text-[#0E1017]
+                           hover:shadow-[0_8px_20px_rgba(0,245,212,0.35)]
+                           transition-[background-color,color,box-shadow,transform] duration-200
+                           hover:scale-[1.03] active:scale-[0.98]"
+              >
+                Demo
+              </a>
+              <a
+                href={p.github}
+                className="px-4 py-2 text-sm rounded-full font-medium border border-[#00F5D4]/60 text-white
+                           hover:bg-[#00F5D4] hover:text-[#0E1017]
+                           hover:shadow-[0_8px_20px_rgba(0,245,212,0.35)]
+                           transition-[background-color,color,box-shadow,transform] duration-200
+                           hover:scale-[1.03] active:scale-[0.98]"
+              >
+                GitHub
+              </a>
             </div>
-          </motion.div>
+          </motion.article>
         ))}
       </div>
     </section>
