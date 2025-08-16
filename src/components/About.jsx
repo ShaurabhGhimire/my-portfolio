@@ -87,7 +87,8 @@ export default function About() {
           </a>
 
           <a
-            href="./public/Saurav_Resume.pdf"
+            // href="./public/Saurav_Resume.pdf"
+            href="#projects"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-full px-6 py-3 font-semibold transition-all duration-300 border border-white/15 bg-white/5 backdrop-blur-sm text-white/90"
@@ -106,7 +107,7 @@ export default function About() {
                 "inset 2px 2px 6px rgba(0,0,0,0.5), inset -2px -2px 6px rgba(255,255,255,0.05)";
             }}
           >
-            View résumé
+            View Work
           </a>
         </motion.div>
       </motion.div>
