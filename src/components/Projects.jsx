@@ -7,30 +7,40 @@ export default function Projects() {
       title: "NASA Space Apps: ExoExplorer",
       description:
         "AI-powered educational tool for exploring exoplanets, blending real NASA data with AI storytelling. Nominated globally after winning the NJ Space Apps Challenge.",
-      demoLink: "#",
-      githubLink: "#",
+      demoLink: "https://exoexplorer.earth",
+      githubLink: "https://github.com/ShaurabhGhimire/exoplanet-explorer.git",
     },
     {
       title: "Accident Hotspot Prediction",
       description:
         "Machine learning project predicting accident hotspots in Nepal using clustering techniques and severity models to improve road safety.",
-      demoLink: "#",
-      githubLink: "#",
+      demoLink: "https://shaurabhghimire.github.io/honors_project_site/",
+      githubLink:
+        "https://github.com/ShaurabhGhimire/honors_project_site/blob/main/honors_paper.pdf",
     },
   ];
 
   const otherProjects = [
     {
-      title: "Blog Website",
-      description: "React + Express blog with structured articles and previews.",
-      link: "#",
-      github: "#",
+      title: "Budget Tracke",
+      description:
+        "Simple personal finance tracker with expense logging, budget setting, and category-based visual insights. Fully responsive across all devices.",
+      link: "https://shaurabhghimire.github.io/FrontEndFinal/",
+      github: "https://github.com/ShaurabhGhimire/FrontEndFinal",
     },
     {
-      title: "Google Keep Clone",
-      description: "Minimalist note-keeping app built with React and MongoDB.",
+      title: "Blog Website",
+      description:
+        "React + Express blog with structured articles and previews.",
       link: "#",
-      github: "#",
+      github: "https://github.com/ShaurabhGhimire/dailyJournel",
+    },
+    {
+      title: "My First Portfolio",
+      description:
+        "My first minimalist portfolio designed using only css and html.",
+      link: "https://shaurabhghimire.github.io/cssportfolio/",
+      github: "https://github.com/ShaurabhGhimire/cssportfolio",
     },
   ];
 
@@ -83,13 +93,19 @@ export default function Projects() {
               style={{ boxShadow: "inset 0 0 0 1px rgba(0,245,212,0.35)" }}
             />
 
-            <h3 className="text-2xl md:text-3xl font-semibold mb-3">{p.title}</h3>
-            <p className="text-white/80 leading-relaxed mb-6">{p.description}</p>
+            <h3 className="text-2xl md:text-3xl font-semibold mb-3">
+              {p.title}
+            </h3>
+            <p className="text-white/80 leading-relaxed mb-6">
+              {p.description}
+            </p>
 
             {/* Buttons: outline by default → fill teal on hover */}
             <div className="mt-4 flex flex-wrap gap-3">
               <a
                 href={p.demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-5 py-2 rounded-full font-semibold border border-[#00F5D4]/60 text-white
                            hover:bg-[#00F5D4] hover:text-[#0E1017]
                            hover:shadow-[0_8px_20px_rgba(0,245,212,0.35)]
@@ -100,6 +116,8 @@ export default function Projects() {
               </a>
               <a
                 href={p.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-5 py-2 rounded-full font-semibold border border-[#00F5D4]/60 text-white
                            hover:bg-[#00F5D4] hover:text-[#0E1017]
                            hover:shadow-[0_8px_20px_rgba(0,245,212,0.35)]
@@ -155,6 +173,8 @@ export default function Projects() {
             <div className="flex gap-3">
               <a
                 href={p.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-4 py-2 text-sm rounded-full font-medium border border-[#00F5D4]/60 text-white
                            hover:bg-[#00F5D4] hover:text-[#0E1017]
                            hover:shadow-[0_8px_20px_rgba(0,245,212,0.35)]
@@ -165,6 +185,8 @@ export default function Projects() {
               </a>
               <a
                 href={p.github}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-4 py-2 text-sm rounded-full font-medium border border-[#00F5D4]/60 text-white
                            hover:bg-[#00F5D4] hover:text-[#0E1017]
                            hover:shadow-[0_8px_20px_rgba(0,245,212,0.35)]
