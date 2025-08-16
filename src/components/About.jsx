@@ -49,8 +49,8 @@ export default function About() {
           variants={item}
           className="mt-5 text-lg md:text-xl text-white/80 leading-relaxed"
         >
-          I craft clean, fast, and beautiful web experiences.  
-          Minimal look. Smooth motion. Code that works hard behind the scenes.
+          I craft clean, fast, and beautiful web experiences. Minimal look.
+          Smooth motion. Code that works hard behind the scenes.
         </motion.p>
 
         <motion.ul className="mt-6 space-y-3 text-white/70" variants={item}>
@@ -87,8 +87,9 @@ export default function About() {
           </a>
 
           <a
-            href="./src/assets/Saurav_Resume.pdf"
-            target="_blank" rel="noopener noreferrer"
+            href="./public/Saurav_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center rounded-full px-6 py-3 font-semibold transition-all duration-300 border border-white/15 bg-white/5 backdrop-blur-sm text-white/90"
             style={{
               boxShadow:
