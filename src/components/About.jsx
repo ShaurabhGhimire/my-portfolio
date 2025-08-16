@@ -89,8 +89,8 @@ export default function About() {
           <a
             // href="./public/Saurav_Resume.pdf"
             href="#projects"
-            target="_blank"
-            rel="noopener noreferrer"
+            // target="_blank"
+            // rel="noopener noreferrer"
             className="inline-flex items-center rounded-full px-6 py-3 font-semibold transition-all duration-300 border border-white/15 bg-white/5 backdrop-blur-sm text-white/90"
             style={{
               boxShadow:
